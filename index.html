@@ -16,8 +16,13 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+  <!-- <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css"> -->
 
   <meta name="theme-color" content="#fafafa">
 </head>
@@ -25,10 +30,48 @@
 <body>
 
   <!-- Add your site or application content here -->
-  <div class="container">
+  <!-- Page Layout here -->
+  <div class="row">
+
+    <div class="col s12 m4 l3">
+      <!-- Grey navigation panel -->
+      <div class="container">
+        <header>
+          <h2>Area Combinations Calculator</h2><br>
+        </header>
+        <main>
+  
+          <form action="">
+            <label for="area">Area:</label>
+            <input type="number" step="0.01" min="0" name="area" id="area-value">
+            <label for="area">m2</label><br><br><br>
+          </form>
+            <h4>Optional</h4><br>
+          <form>
+            <label for="min-value">Minimum value for one of the dimensions</label>
+            <input type="number" step="0.01" min="0.1" name="min-value" id="min-value">
+            <br><br>
+            <label for="step-value">Step to increment</label>
+            <input type="number" step="0.01" min="0.1" name="step-value" id="step-value">
+            <br><br>
+            <a id="calc-btn" class="waves-effect waves-light red accent-3 btn-large">Show combinations</a>
+          </form>
+        </main>
+      </div>
+    </div>
+
+    <div class="col s12 m8 l9">
+      <!-- Teal page content  -->
+      <section class="container">
+        <ul class="comb-list hide"></ul>
+      </section>
+    </div>
+
+  </div>
+  <!-- <div class="container row">
     <header>
 
-      <h1>Area Combinations Calculator</h1>
+      <h2>Area Combinations Calculator</h2>
 
     </header>
     <main>
@@ -38,13 +81,13 @@
         <input type="number" step="0.01" min="0" name="area" id="area-number">
         <label for="area">m2</label>
       </form>
-        <h3>Optional</h3>
+        <h4>Optional</h4>
       <form>
         <label for="min-value">Minimum value for one of the dimensions</label>
         <input type="number" step="0.01" min="0.1" name="min-value" id="min-value">
         <label for="step-value">Step to increment</label>
         <input type="number" step="0.01" min="0.1" name="step-value" id="step-value">
-        <button>Show Combinations</button>
+        <a class="waves-effect waves-light red accent-3 btn-large">Show combinations</a>
       </form>
   
       <section>
@@ -52,7 +95,7 @@
       </section>
       
     </main>
-  </div>
+  </div> -->
 
   
 
@@ -62,6 +105,7 @@
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
