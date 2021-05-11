@@ -55,7 +55,7 @@ calculateButton.addEventListener("click", () => {
 
 // clear and reset form
 const clearInput = () => {
-    areaValue = '';
-    setMinValue = 1;
-    setStepValue = 1;
+    area.value = '';
+    setMin.value = 1;
+    setStep.value = 1;
 }
