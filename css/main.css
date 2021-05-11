@@ -86,6 +86,29 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+label, input {
+  flex: 1;
+  align-self: center;
+}
+
+button {
+  width: 100%;
+  padding: 1rem;
+}
 
 /* ==========================================================================
    Helper classes
