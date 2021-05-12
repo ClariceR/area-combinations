@@ -46,7 +46,9 @@
             <input type="number" step="0.01" min="0" name="area" id="area-value">
             <label for="area">m2</label><br><br>
           </form>
-            <p>Optional</p>
+
+          <p>Optional</p>
+
           <form>
             <label for="min-value">Minimum value for one of the dimensions</label>
             <input value=1 type="number" step="0.01" min="0.1" name="min-value" id="min-value">
@@ -55,6 +57,16 @@
             <input value=1 type="number" step="0.01" min="0.1" name="step-value" id="step-value">
             <br><br>
           </form>
+
+          <!-- <form action="#">
+            <p>
+              <label for="intergers-only">
+                <input id="intergers-only" type="checkbox" />
+                <span>Whole numbers only</span>
+              </label>
+            </p>
+          </form> -->
+
           <a id="calc-btn" class="waves-effect waves-light red accent-3 btn-large">Show combinations</a>
         </main>
       </div>
@@ -65,16 +77,28 @@
       <section class="container">
         <ul class="comb-list hide"></ul>
       </section>
+      <section class="container">
+        <div class="row">
+          <div class="col s6 m5 hide">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text center">
+                <p>4 x 3</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
   </div>
 
 
   <!-- Js -->
+  <script type="text/javascript" src="js/materialize.min.js"></script>
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
-  <script type="text/javascript" src="js/materialize.min.js"></script>
+  
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
