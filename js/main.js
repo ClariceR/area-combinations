@@ -31,7 +31,7 @@ function isDecimal(area, height) {
 
 // Deals with decimal numbers
 function limitDecimalPlaces(number) {
-        return number = parseFloat(number).toFixed(4);
+        return number = parseFloat(number).toFixed(2);
 }
 
 // Format the array's areas into strings separated by 'x'
@@ -48,22 +48,6 @@ calculateButton.addEventListener("click", () => {
     addCard();
     clearInput();
 })
-
-//add pairs to list
-const addPairs = () => {
-    combinationsList.innerHTML = '';
-    let areaValue = parseFloat(area.value);
-    let setMinValue = parseFloat(setMin.value);
-    let setStepValue = parseFloat(setStep.value);
-    const combArray = areaCombinations(areaValue, setMinValue, setStepValue);
-    const strCombArray = formatCombinations(combArray);
-    for (let pair of strCombArray) {
-        let li = document.createElement('li');
-        li.innerText = pair;
-        combinationsList.appendChild(li);
-    }
-    combinationsList.classList.remove('hide');
-}
 
 // add card
 const addCard = () => {
@@ -95,3 +79,19 @@ const clearInput = () => {
     setMin.value = 1;
     setStep.value = 1;
 }
+
+//add pairs to list
+// const addPairs = () => {
+//     combinationsList.innerHTML = '';
+//     let areaValue = parseFloat(area.value);
+//     let setMinValue = parseFloat(setMin.value);
+//     let setStepValue = parseFloat(setStep.value);
+//     const combArray = areaCombinations(areaValue, setMinValue, setStepValue);
+//     const strCombArray = formatCombinations(combArray);
+//     for (let pair of strCombArray) {
+//         let li = document.createElement('li');
+//         li.innerText = pair;
+//         combinationsList.appendChild(li);
+//     }
+//     combinationsList.classList.remove('hide');
+// }
