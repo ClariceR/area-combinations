@@ -35,21 +35,19 @@ calculateButton.addEventListener("click", () => {
     let setMinValue = parseFloat(setMin.value);
     let setStepValue = parseFloat(setStep.value);
     const combArray = areaCombinations(areaValue, setMinValue, setStepValue);
-    console.log(combArray);
     const strCombArray = formatCombinations(combArray);
-    console.log(strCombArray);
     for (let pair of strCombArray) {
         let li = document.createElement('li');
         li.innerText = pair;
         combinationsList.appendChild(li);
     }
     combinationsList.classList.remove('hide');
-    // clearInput();
+    clearInput();
 })
 
 // clear and reset form
-// const clearInput = () => {
-//     areaValue.value = '';
-//     setMinValue.value = 1;
-//     setStepValue.value = 1;
-// }
+const clearInput = () => {
+    area.value = '';
+    setMin.value = 1;
+    setStep.value = 1;
+}
