@@ -44,12 +44,12 @@ calculateButton.addEventListener("click", () => {
         combinationsList.appendChild(li);
     }
     combinationsList.classList.remove('hide');
-    // clearInput();
+    clearInput();
 })
 
 // clear and reset form
-// const clearInput = () => {
-//     areaValue.value = '';
-//     setMinValue.value = 1;
-//     setStepValue.value = 1;
-// }
+const clearInput = () => {
+    area.value = '';
+    setMin.value = 1;
+    setStep.value = 1;
+}
