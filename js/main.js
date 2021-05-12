@@ -4,16 +4,6 @@ const setStep = document.querySelector("#step-value");
 const calculateButton = document.querySelector("#calc-btn");
 const combinationsList = document.querySelector(".comb-list");
 
-let areaValue = parseFloat(area.value);
-let setMinValue = parseFloat(setMin.value);
-let setStepValue = parseFloat(setStep.value);
-
-console.log(areaValue);
-console.log(setMinValue);
-console.log(setStepValue);
-
-
-
 // Area Combinations Calculator
 function areaCombinations(area, setMin, setStep) {
     let allCombinations = [];
@@ -40,6 +30,10 @@ function formatCombinations(nestedArray) {
 
 // Click event for button
 calculateButton.addEventListener("click", () => {
+    combinationsList.innerHTML = '';
+    let areaValue = parseFloat(area.value);
+    let setMinValue = parseFloat(setMin.value);
+    let setStepValue = parseFloat(setStep.value);
     const combArray = areaCombinations(areaValue, setMinValue, setStepValue);
     console.log(combArray);
     const strCombArray = formatCombinations(combArray);
@@ -55,7 +49,7 @@ calculateButton.addEventListener("click", () => {
 
 // clear and reset form
 const clearInput = () => {
-    area.value = '';
-    setMin.value = 1;
-    setStep.value = 1;
+    areaValue = '';
+    setMinValue = 1;
+    setStepValue = 1;
 }
