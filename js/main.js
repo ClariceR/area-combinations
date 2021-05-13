@@ -12,11 +12,9 @@ function areaCombinations(area, setMin, setStep) {
         height = i;
         combination.push(height);
         let width = area / height;
-        console.log(width);
         if (isDecimal(area, height)) {
             width = limitDecimalPlaces(width);
         }
-        console.log(width);
         combination.push(width);
         allCombinations.push(combination);
         combination = [];
@@ -31,7 +29,7 @@ function isDecimal(area, height) {
 
 // Deals with decimal numbers
 function limitDecimalPlaces(number) {
-        return number = parseFloat(number).toFixed(2);
+        return number = Number(parseFloat(number).toFixed(2));
 }
 
 // Format the array's areas into strings separated by 'x'
@@ -43,11 +41,28 @@ function formatCombinations(nestedArray) {
     return formatedArray;
 }
 
-// Click event for button - working!
+// Click event for button
 calculateButton.addEventListener("click", () => {
     addCard();
     clearInput();
 })
+
+
+// Filter out sizes smaller than the min
+const filterOutTooSmall = (allCombinations, setMin) => {
+    filteredCombinations = []
+    for (let combination of allCombinations) {
+        let index = allCombinations.indexOf(combination);
+        console.log('index:' + index)
+        if (combination[1] >= setMin) {
+            filteredCombinations.push(combination);
+            console.log("I need to be removed:" + allCombinations[index]);
+        }
+    }
+    console.log(filteredCombinations);
+ 
+    return filteredCombinations;
+}
 
 // add card
 const addCard = () => {
@@ -56,7 +71,8 @@ const addCard = () => {
     let setMinValue = parseFloat(setMin.value);
     let setStepValue = parseFloat(setStep.value);
     const combArray = areaCombinations(areaValue, setMinValue, setStepValue);
-    const strCombArray = formatCombinations(combArray);
+    const filteredArray = filterOutTooSmall(combArray, setMinValue);
+    const strCombArray = formatCombinations(filteredArray);
     for (let pair of strCombArray) {
         let cardDiv = document.createElement('div');
         cardDiv.classList.add("col");
@@ -79,19 +95,3 @@ const clearInput = () => {
     setMin.value = 1;
     setStep.value = 1;
 }
-
-//add pairs to list
-// const addPairs = () => {
-//     combinationsList.innerHTML = '';
-//     let areaValue = parseFloat(area.value);
-//     let setMinValue = parseFloat(setMin.value);
-//     let setStepValue = parseFloat(setStep.value);
-//     const combArray = areaCombinations(areaValue, setMinValue, setStepValue);
-//     const strCombArray = formatCombinations(combArray);
-//     for (let pair of strCombArray) {
-//         let li = document.createElement('li');
-//         li.innerText = pair;
-//         combinationsList.appendChild(li);
-//     }
-//     combinationsList.classList.remove('hide');
-// }
