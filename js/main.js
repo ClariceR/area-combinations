@@ -64,7 +64,7 @@ const filterOutTooSmall = (allCombinations, setMin) => {
     return filteredCombinations;
 }
 
-// add card
+// refactoring addCard
 const addCard = () => {
     combinationsList.innerHTML = '';
     let areaValue = parseFloat(area.value);
@@ -73,6 +73,12 @@ const addCard = () => {
     const combArray = areaCombinations(areaValue, setMinValue, setStepValue);
     const filteredArray = filterOutTooSmall(combArray, setMinValue);
     const strCombArray = formatCombinations(filteredArray);
+    createCard(strCombArray);
+    combinationsList.classList.remove('hide')
+}
+
+// create card
+const createCard = strCombArray => {
     for (let pair of strCombArray) {
         let cardDiv = document.createElement('div');
         cardDiv.classList.add("col");
@@ -86,8 +92,34 @@ const addCard = () => {
             </div>`;
         combinationsList.append(cardDiv);
     }
-    combinationsList.classList.remove('hide')
 }
+
+
+
+// add card -- working!
+// const addCard = () => {
+//     combinationsList.innerHTML = '';
+//     let areaValue = parseFloat(area.value);
+//     let setMinValue = parseFloat(setMin.value);
+//     let setStepValue = parseFloat(setStep.value);
+//     const combArray = areaCombinations(areaValue, setMinValue, setStepValue);
+//     const filteredArray = filterOutTooSmall(combArray, setMinValue);
+//     const strCombArray = formatCombinations(filteredArray);
+//     for (let pair of strCombArray) {
+//         let cardDiv = document.createElement('div');
+//         cardDiv.classList.add("col");
+//         cardDiv.classList.add("s6");
+//         cardDiv.classList.add("m5");
+//         cardDiv.innerHTML = `
+//             <div class="card blue-grey darken-1">
+//               <div class="card-content white-text center">
+//                 <p>${pair}</p>
+//               </div>
+//             </div>`;
+//         combinationsList.append(cardDiv);
+//     }
+//     combinationsList.classList.remove('hide')
+// }
 
 // clear and reset form
 const clearInput = () => {
